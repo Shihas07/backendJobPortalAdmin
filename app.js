@@ -13,7 +13,7 @@ app.use(express.json());
 
 
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: 'https://jobportal-1-as4r.onrender.com/',
   methods: ['GET', 'POST',"DELETE"],
   credentials: true,
   allowedHeaders: ['Content-Type', 'Authorization']
