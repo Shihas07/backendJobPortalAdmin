@@ -57,7 +57,7 @@ const fetchData = async (req, res) => {
     res.status(200).json({ message: "Jobs fetched successfully", jobs });
   } catch (error) {
     console.error("Error fetching jobs:", error);
-    res.status(500).json({ message: "Internal server error", error });
+    res.status(500).json({ message: "Internal server errorrrr", error });
   }
 };
 
