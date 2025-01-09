@@ -5,6 +5,7 @@ const PORT = 3000;
 const cors =require("cors")
 const adminRouter=require("./routes/admin")
 const mongoose=require("mongoose")
+require('dotenv').config();
 
 // Middleware to parse JSON request bodies
 app.use(express.json());
@@ -21,7 +22,7 @@ app.use(cors({
 app.use("/", adminRouter)
 
 mongoose
-.connect("mongodb://localhost:27017/JobData", {
+.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
