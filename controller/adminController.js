@@ -15,7 +15,7 @@ const addData = async (req, res) => {
 
     console.log(req.body);
 
-    const existingJob = await Job.findOne({ companyName});
+    const existingJob = await Job.findOne({ companyName, jobTitle});
 
     if (existingJob) {
       return res
