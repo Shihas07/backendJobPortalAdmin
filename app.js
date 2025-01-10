@@ -1,7 +1,7 @@
 const express = require("express");
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT =  3000;
 const cors =require("cors")
 const adminRouter=require("./routes/admin")
 const mongoose=require("mongoose")
@@ -14,6 +14,10 @@ app.use(express.json());
 
 app.use(cors({
   origin: 'https://jobportal-1-as4r.onrender.com/',
+
+
+
+  // origin:"http://localhost:5173/",
   methods: ['GET', 'POST',"DELETE"],
   credentials: true,
   allowedHeaders: ['Content-Type', 'Authorization']

@@ -48,12 +48,13 @@ const addData = async (req, res) => {
 const fetchData = async (req, res) => {
   try {
     const jobs = await Job.find(); 
-    console.log(jobs)
+    // console.log(jobs)
 
     if (jobs.length === 0) {
       return res.status(404).json({ message: "No jobs found." });
     }
         console.log("jobs",jobs)
+        // console.log("shihas")
     res.status(200).json({ message: "Jobs fetched successfully", jobs });
   } catch (error) {
     console.error("Error fetching jobs:", error);
