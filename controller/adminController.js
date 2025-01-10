@@ -47,7 +47,7 @@ const addData = async (req, res) => {
 
 const fetchData = async (req, res) => {
   try {
-    const jobs = await Job.find({}); 
+    const jobs = await Job.find(); 
     // console.log(jobs)
 
     if (jobs.length === 0) {
