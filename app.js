@@ -1,35 +1,31 @@
 const express = require("express");
 
 const app = express();
-const PORT =  3000;
-const cors =require("cors")
-const adminRouter=require("./routes/admin")
-const mongoose=require("mongoose")
-require('dotenv').config();
+const PORT = 3000;
+const cors = require("cors");
+const adminRouter = require("./routes/admin");
+const mongoose = require("mongoose");
+require("dotenv").config();
 
 // Middleware to parse JSON request bodies
 app.use(express.json());
 
+app.use(
+  cors({
+    origin: "https://jobportal-1-as4r.onrender.com/",
 
+    methods: ["GET", "POST", "DELETE"],
+    credentials: true,
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 
-app.use(cors({
-  origin: 'https://jobportal-1-as4r.onrender.com/',
+app.use("/", adminRouter);
 
-
-
-  // origin:"http://localhost:5173/",
-  methods: ['GET', 'POST',"DELETE"],
-  credentials: true,
-  allowedHeaders: ['Content-Type', 'Authorization']
-}));
-
-app.use("/", adminRouter)
-
-mongoose
-.connect(process.env.MONGO_URI, {
+mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-})
+});
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
